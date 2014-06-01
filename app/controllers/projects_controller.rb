@@ -27,14 +27,18 @@ before_action :set_project, only: [:show,:edit, :update, :destroy]
 
   def update
     if @project.update(project_params)
-      redirect_to edit_project_path(@project), notice: "updated project -#{@project.name}"
+      redirect_to edit_project_path(@project), notice: "updated project: #{@project.name}"
     else
       redirect_to edit_project_path(@project), alert: "Error"
     end
   end
 
   def destroy
-
+    if @project.destroy
+      redirect_to projects_path, notice: "project deleted"
+    else
+      redirect_to projects_path, alert: "deleting failure"
+    end
   end
 
   private

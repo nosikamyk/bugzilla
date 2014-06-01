@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable, :lockable, :timeoutable ,:omniauthable
 
-  has_many :projects
+  has_many :projects, through: :members
+  has_many :members
 
 end
