@@ -6,7 +6,8 @@
     h3
       = link_to p.name, project_path(p)
     - p.users.each do |project_member|
-      = project_member.name
+      = project_member.email
+      br
     = link_to "Edit", edit_project_path(p)
     = button_to "Delete", project_path(p), method: :delete
 .row

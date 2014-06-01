@@ -18,8 +18,9 @@ before_action :set_project, only: [:show,:edit, :update, :destroy]
 
   def create
     @project = current_user.projects.new(project_params)
+    @project.users = [current_user]
     if @project.save
-      redirect_to projects_path, notice: "added project -#{@project.name}"
+      redirect_to projects_path, notice: "added project: #{@project.name}"
     else
       render :new
     end

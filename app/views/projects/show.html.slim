@@ -1,2 +1,13 @@
-= @project.name
-=link_to "back to dashboard", :back
+h1
+  = @project.name
+.row
+  .col-md-1
+    =link_to "Current", "#"
+  .col-md-1
+    =link_to "Backlog", "#"
+  .col-md-1
+    =link_to "Icebox", "#"
+  .col-md-1
+    =link_to "Back to Dashboard", dashboard_path
+  .col-md-1
+    =link_to "Story", "#"
