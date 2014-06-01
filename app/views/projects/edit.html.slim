@@ -6,5 +6,8 @@ h2
     br
     = project.text_field :name, :autofocus => true
   div
+    - project.users.each do |project_member|
+    =
+  div
     = project.submit "Save"
-    = link_to "back", projects_path
+    = link_to "Cancel", projects_path
