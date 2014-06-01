@@ -24,6 +24,7 @@ gem 'omniauth'
 
 gem 'kaminari'
 
+
 group :development do
   gem 'thin'
   gem 'better_errors'
