@@ -1,0 +1,8 @@
+= link_to "Add new project", new_project_path
+
+- @projects.each do |p|
+  div
+    h3
+      = link_to p.name, project_path(p)
+    = link_to "Edit", edit_project_path(p)
+    = button_to "Delete", project_path(p), method: :delete

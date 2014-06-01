@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="2125232745">
+  <component name="DataSourceManagerImpl" format="xml" hash="397021051">
     <data-source source="LOCAL" name="Rails bugzilla: development" uuid="d4be0295-81d2-44fa-93d1-0a32f4412313">
       <driver-ref>postgresql</driver-ref>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>

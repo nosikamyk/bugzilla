@@ -5,4 +5,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable, :lockable, :timeoutable ,:omniauthable
 
+  has_many :projects
+
 end

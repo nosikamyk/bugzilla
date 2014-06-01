@@ -1,0 +1,9 @@
+h2
+  | Sign in
+= form_for @project do |project|
+  div
+    = project.label :name
+    br
+    = project.text_field :name, :autofocus => true
+  div
+    = project.submit "Save"
