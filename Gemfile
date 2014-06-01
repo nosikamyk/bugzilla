@@ -22,7 +22,8 @@ gem 'draper', '1.3.0'
 
 gem 'omniauth'
 
-gem 'bootstrap-sass', '~> 3.1.1'
+gem 'kaminari'
+
 group :development do
   gem 'thin'
   gem 'better_errors'

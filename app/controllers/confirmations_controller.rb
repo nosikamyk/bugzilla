@@ -1,6 +1,5 @@
-class ConfirmationsContr < Devise::confirmations_controller
-  private
-  def create
-    redirect_to controller: :statics, action: :home
+class ConfirmationsController < Devise::ConfirmationsController
+  def after_confirmation_path_for(resource_name, resource)
+    home_path
   end
 end

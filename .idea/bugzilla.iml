@@ -133,7 +133,6 @@
     <orderEntry type="library" scope="PROVIDED" name="bcrypt-ruby (v3.1.5, RVM: ruby-2.1.2 [bugzilla]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="better_errors (v1.1.0, RVM: ruby-2.1.2 [bugzilla]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="binding_of_caller (v0.7.2, RVM: ruby-2.1.2 [bugzilla]) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="bootstrap-sass (v3.1.1.1, RVM: ruby-2.1.2 [bugzilla]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="builder (v3.2.2, RVM: ruby-2.1.2 [bugzilla]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bundler (v1.6.2, RVM: ruby-2.1.2 [bugzilla]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="coderay (v1.1.0, RVM: ruby-2.1.2 [bugzilla]) [gem]" level="application" />
@@ -153,6 +152,7 @@
     <orderEntry type="library" scope="PROVIDED" name="jbuilder (v1.5.3, RVM: ruby-2.1.2 [bugzilla]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="jquery-rails (v3.1.0, RVM: ruby-2.1.2 [bugzilla]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="json (v1.8.1, RVM: ruby-2.1.2 [bugzilla]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="kaminari (v0.15.1, RVM: ruby-2.1.2 [bugzilla]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mail (v2.5.4, RVM: ruby-2.1.2 [bugzilla]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mime-types (v1.25.1, RVM: ruby-2.1.2 [bugzilla]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="minitest (v5.3.4, RVM: ruby-2.1.2 [bugzilla]) [gem]" level="application" />
