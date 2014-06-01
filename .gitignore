@@ -31,4 +31,4 @@ coverage/**/*
 # NodeJS specific for bower components
 /vendor/assets/bower_components/
 /node_modules
-npm-debug.log
+npm-debug.log.idea
