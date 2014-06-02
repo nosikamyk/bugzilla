@@ -6,5 +6,6 @@ class User < ActiveRecord::Base
          :confirmable, :lockable, :timeoutable ,:omniauthable
   has_many :members
   has_many :projects, through: :members
+  has_many :stories
 
 end

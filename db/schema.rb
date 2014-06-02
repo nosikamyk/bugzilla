@@ -11,14 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140601194914) do
+ActiveRecord::Schema.define(version: 20140602204509) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "comments", force: true do |t|
+    t.string  "text"
+    t.integer "story_id"
+  end
+
+  add_index "comments", ["story_id"], name: "index_comments_on_story_id", using: :btree
+
   create_table "members", force: true do |t|
     t.integer "user_id"
     t.integer "project_id"
+    t.string  "confirmation_token"
+    t.boolean "confirmed"
+    t.boolean "manager"
   end
 
   add_index "members", ["project_id"], name: "index_members_on_project_id", using: :btree
@@ -27,6 +37,25 @@ ActiveRecord::Schema.define(version: 20140601194914) do
   create_table "projects", force: true do |t|
     t.string "name"
   end
+
+  create_table "stories", force: true do |t|
+    t.string  "name"
+    t.text    "description"
+    t.string  "type"
+    t.string  "status"
+    t.integer "user_id"
+    t.integer "project_id"
+  end
+
+  add_index "stories", ["project_id"], name: "index_stories_on_project_id", using: :btree
+  add_index "stories", ["user_id"], name: "index_stories_on_user_id", using: :btree
+
+  create_table "tasks", force: true do |t|
+    t.string  "name"
+    t.integer "story_id"
+  end
+
+  add_index "tasks", ["story_id"], name: "index_tasks_on_story_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

@@ -1,13 +1,19 @@
 h2
-  | Edit project
-= form_for @project do |project|
+  | Add / Edit project
+= form_for @project do |f|
   div
-    = project.label :name
+    = f.label :name
     br
-    = project.text_field :name, :autofocus => true
+    = f.text_field :name, :autofocus => true
   div
-    - project.users.each do |project_member|
-    =
+    | Members
+    br
+    = link_to "Add new member", "#"
+    - @project.users.each do |project_member|
+      div
+        = project_member.email
+          = link_to "x", "#"
   div
-    = project.submit "Save"
-    = link_to "Cancel", projects_path
+    = f.submit "Save"
+    .btn.btn-default
+      = link_to "Cancel", projects_path
