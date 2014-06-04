@@ -1,0 +1,21 @@
+h2
+  | Add Story
+=form_for @story do |f|
+  div
+    = f.label :name
+    br
+    = f.text_field :name, :autofocus => true
+    br
+    = f.label :description
+    br
+    = f.text_area :description
+    br
+    = f.label :type
+    br
+    = f.select :type, options_for_select(["Feature", "Bug", "Chore", "Release"])
+    br
+    = f.label :status
+    br
+    = f.select :status, options_for_select(["Unstarted", "Started", "Finished", "Delivered", "Accepted", "Rejected"])
+  div
+    = f.submit "Save"

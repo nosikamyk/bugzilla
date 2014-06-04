@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
 
-before_action :set_project, only: [:show,:edit, :update, :destroy]
+before_action :set_project, only: [:show,:edit, :update, :destroy, :comments]
 
   def index
     @projects = current_user.projects.all.page(params[:page]).per(8)
@@ -42,6 +42,10 @@ before_action :set_project, only: [:show,:edit, :update, :destroy]
     else
       redirect_to projects_path, alert: "deleting failure"
     end
+  end
+
+  def comments
+
   end
 
   private

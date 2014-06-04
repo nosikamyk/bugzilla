@@ -10,4 +10,9 @@ h1
   .btn.btn-default
     =link_to "Back to Dashboard", dashboard_path
   .btn.btn-default
-    =link_to "Add new Story", "#"
+    =link_to "Add new Story", new_project_story_path(@project)
+
+= @project.stories.each do |story|
+  div
+    .bg-warning
+      = story.name
