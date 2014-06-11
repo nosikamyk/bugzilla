@@ -1,5 +1,5 @@
 h2
-  | Add / Edit project
+  |Edit project
 = form_for @project do |f|
   div
     = f.label :name
@@ -9,10 +9,10 @@ h2
     | Members
     br
     = link_to "Add new member", new_project_member_path(@project)
-    - @project.users.each do |project_member|
+    - @project.members.each do |project_member|
       div
-        = project_member.email
-          = link_to "x", "#"
+        = project_member.member_email
+        = link_to "x", project_member_path(@project, project_member), method: :delete, data: {confirm: "Are you sure you want to remove #{project_member.member_name} from project #{@project.name}?" }
   div
     = f.submit "Save"
     .btn.btn-default

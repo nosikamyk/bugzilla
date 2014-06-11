@@ -8,7 +8,11 @@ h2
   div
     = f.label :member_email
     br
-    = f.text_field :member_email, :autofocus => true
+    = f.text_field :member_email
+  div
+    = f.label :manager
+    br
+    = f.check_box :manager, {}, true, false
   div
     = f.submit "Add"
     = link_to "Cancel", dashboard_path

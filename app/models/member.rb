@@ -3,6 +3,14 @@ class Member < ActiveRecord::Base
   belongs_to :user
   belongs_to :project
 
+  def activate!(current_user)
+    if current_user && current_user.email.downcase == member_email.downcase
+      update_attribute(:confirmed, true)
+    else
+      raise "Invalid user!"
+    end
+  end
+
   private
 
   def generate_token

@@ -1,0 +1,11 @@
+|Dear
+= @member.member_name
+|,
+br
+|you are invited to
+= @project.name
+|project, click the link to activate invitation.
+br
+= link_to 'confirm', activate_member_url(@project, @member)
+br
+|If you didn't request this, please ignore this email.

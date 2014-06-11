@@ -22,6 +22,10 @@ before_action :set_users, only: [:add_member]
   def create
     @project = current_user.projects.new(project_params)
     @project.users = [current_user]
+    @member = current_user.members.find(params[:id])
+    @member.member_email = current_user.email
+    @member.member_name = "Creator"
+    @member.manager = true
     if @project.save
       redirect_to projects_path, notice: "added project: #{@project.name}"
     else
