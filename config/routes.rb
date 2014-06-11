@@ -11,3 +11,8 @@ Bugzilla::Application.routes.draw do
   get 'projects' => 'projects#index', as: :dashboard
   get 'projects/:id/add_member' => 'projects#add_member', as: :project_add_member
 end
+
+
+#resources :projects, only: [:edit, :show] do  tylko dla show/edit
+#  resources :members, :stories
+#end

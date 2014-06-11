@@ -3,7 +3,6 @@ class MembersController < ApplicationController
   before_action :set_project, only: [:index, :show, :new, :create, :edit, :update, :destroy]
 
   def index
-
   end
 
   def show
@@ -11,7 +10,6 @@ class MembersController < ApplicationController
   end
 
   def edit
-
   end
 
   def new
@@ -19,10 +17,9 @@ class MembersController < ApplicationController
   end
 
   def create
-    @project = current_user.projects.new(project_params)
-    @project.users = [current_user]
-    if @project.save
-      redirect_to projects_path, notice: "added project: #{@project.name}"
+    @member = @project.members.build(member_params)
+    if @member.save
+      redirect_to edit_project_path(@project), notice: "added member: #{@member.member_name}"
     else
       render :new
     end
@@ -38,10 +35,13 @@ class MembersController < ApplicationController
 
   private
 
+  def member_params
+    params.require(:member).permit(:member_name, :member_email, :manager)
+  end
+
 
   def set_member
-    set_project
-    @member = @project.members.find(:user_id)
+    @member = @project.members.find(:id)
   end
 
   def set_project

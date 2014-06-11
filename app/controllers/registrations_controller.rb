@@ -29,12 +29,12 @@ class RegistrationsController < Devise::RegistrationsController
     end
 
     @user = User.find(current_user.id)
-    if @user.update_attributes(account_update_params)
+    if @user.update(account_update_params)
       set_flash_message :notice, :updated
       sign_in @user, :bypass => true
       redirect_to dashboard_path
     else
-      render "edit"
+      render :edit
     end
   end
 end

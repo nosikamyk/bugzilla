@@ -20,8 +20,6 @@ gem 'slim-rails'
 #Decorator
 gem 'draper', '1.3.0'
 
-gem 'omniauth'
-
 gem 'kaminari'
 
 

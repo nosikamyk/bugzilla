@@ -45,11 +45,6 @@ before_action :set_users, only: [:add_member]
     end
   end
 
-  def add_member
-
-
-  end
-
   private
 
   def project_params

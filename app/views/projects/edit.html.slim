@@ -8,7 +8,7 @@ h2
   div
     | Members
     br
-    = link_to "Add new member", project_add_member_path(@project)
+    = link_to "Add new member", new_project_member_path(@project)
     - @project.users.each do |project_member|
       div
         = project_member.email
