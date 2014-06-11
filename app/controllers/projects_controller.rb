@@ -1,6 +1,7 @@
 class ProjectsController < ApplicationController
 
-before_action :set_project, only: [:show,:edit, :update, :destroy, :comments]
+before_action :set_project, only: [:show,:edit, :update, :destroy, :add_member]
+before_action :set_users, only: [:add_member]
 
   def index
     @projects = current_user.projects.all.page(params[:page]).per(8)
@@ -44,7 +45,8 @@ before_action :set_project, only: [:show,:edit, :update, :destroy, :comments]
     end
   end
 
-  def comments
+  def add_member
+
 
   end
 
@@ -56,6 +58,10 @@ before_action :set_project, only: [:show,:edit, :update, :destroy, :comments]
 
   def set_project
     @project = Project.find(params[:id])
+  end
+
+  def set_users
+    @users = User.all
   end
 
 end

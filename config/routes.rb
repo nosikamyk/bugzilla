@@ -9,4 +9,5 @@ Bugzilla::Application.routes.draw do
     resources :tasks, :comments
   end
   get 'projects' => 'projects#index', as: :dashboard
+  get 'projects/:id/add_member' => 'projects#add_member', as: :project_add_member
 end
