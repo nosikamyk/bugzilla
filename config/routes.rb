@@ -9,7 +9,7 @@ Bugzilla::Application.routes.draw do
     resources :tasks, :comments
   end
   get 'projects' => 'projects#index', as: :dashboard
-  get "/projects/:project_id/members/:id/activate" => "members#activate", :as => "activate_member"
+  get ":project_id/activate/:token" => "members#activate", :as => "activate_member"
 end
 
 

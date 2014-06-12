@@ -8,12 +8,13 @@ h2
   div
     | Members
     br
-    = link_to "Add new member", new_project_member_path(@project)
+    = link_to "Add new member", new_project_member_path(@project), class: 'btn btn-primary'
     - @project.members.each do |project_member|
       div
-        = project_member.member_email
+        = link_to project_member.member_name,project_member_path(@project, project_member) ,{ class: (if project_member.confirmed? then "bg-success" else "bg-danger" end)}
+        |#{" -- "}
         = link_to "x", project_member_path(@project, project_member), method: :delete, data: {confirm: "Are you sure you want to remove #{project_member.member_name} from project #{@project.name}?" }
   div
-    = f.submit "Save"
-    .btn.btn-default
-      = link_to "Cancel", projects_path
+    = f.submit "Save",class:  'btn btn-primary'
+    = link_to "Cancel", projects_path, class:  'btn btn-default'
+

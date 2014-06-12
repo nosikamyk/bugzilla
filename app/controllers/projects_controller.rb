@@ -1,32 +1,25 @@
 class ProjectsController < ApplicationController
 
-before_action :set_project, only: [:show,:edit, :update, :destroy, :add_member]
-before_action :set_users, only: [:add_member]
+  before_action :set_project, only: [:show, :edit, :update, :destroy]
 
   def index
     @projects = current_user.projects.all.page(params[:page]).per(8)
   end
 
   def show
-
   end
 
   def edit
-
   end
 
   def new
-    @project = current_user.projects.new
+    @project = Project.new
   end
 
   def create
-    @project = current_user.projects.new(project_params)
-    @project.users = [current_user]
-    @member = current_user.members.find(params[:id])
-    @member.member_email = current_user.email
-    @member.member_name = "Creator"
-    @member.manager = true
+    @project = Project.new(project_params)
     if @project.save
+      @project.set_owner(current_user)
       redirect_to projects_path, notice: "added project: #{@project.name}"
     else
       render :new
@@ -35,7 +28,7 @@ before_action :set_users, only: [:add_member]
 
   def update
     if @project.update(project_params)
-      redirect_to edit_project_path(@project), notice: "updated project: #{@project.name}"
+      redirect_to edit_project_path(@project), notice: "Updated project: #{@project.name}"
     else
       redirect_to edit_project_path(@project), alert: "Error"
     end
@@ -43,9 +36,9 @@ before_action :set_users, only: [:add_member]
 
   def destroy
     if @project.destroy
-      redirect_to projects_path, notice: "project deleted"
+      redirect_to projects_path, notice: "Project deleted."
     else
-      redirect_to projects_path, alert: "deleting failure"
+      redirect_to projects_path, alert: "Deleting failure."
     end
   end
 
@@ -57,10 +50,6 @@ before_action :set_users, only: [:add_member]
 
   def set_project
     @project = Project.find(params[:id])
-  end
-
-  def set_users
-    @users = User.all
   end
 
 end

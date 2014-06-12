@@ -1,6 +1,6 @@
 class MembersController < ApplicationController
   before_action :set_project, only: [:index, :show, :new, :create, :edit, :update, :destroy, :activate]
-  before_action :set_member, only: [:show, :edit, :update, :destroy, :activate]
+  before_action :set_member, only: [:show, :edit, :update, :destroy]
 
   def index
   end
@@ -19,7 +19,6 @@ class MembersController < ApplicationController
   def create
     @member = @project.members.build(member_params)
     if @member.save
-      MemberMailer.confirmation_email(@project, @member, @member.confirmation_token).deliver
       redirect_to edit_project_path(@project), notice: "added member: #{@member.member_name}"
     else
       render :new
@@ -39,8 +38,13 @@ class MembersController < ApplicationController
   end
 
   def activate
-    @member.activate!(current_user)
-    redirect_to root_path
+    @member = @project.members.find_by(confirmation_token: params[:token])
+    if @member.present?
+      @member.activate!
+      redirect_to root_path
+    else
+      raise 'error'
+    end
   end
 
   private

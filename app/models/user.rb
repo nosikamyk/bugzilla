@@ -6,5 +6,4 @@ class User < ActiveRecord::Base
          :confirmable, :lockable
   has_many :members
   has_many :projects, through: :members
-
 end

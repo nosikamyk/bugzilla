@@ -14,9 +14,7 @@
         br
         |-
         br
-        .btn.btn-warning
-          = link_to "Edit", edit_project_path(p)
-        .btn.btn-danger
-          = link_to "Delete", project_path(p), method: :delete, data: {confirm: "Are you sure you want to delete project #{p.name} ?"}
+          = link_to "Edit", edit_project_path(p), class: 'btn btn-warning'
+          = link_to "Delete", project_path(p), method: :delete, data: {confirm: "Are you sure you want to delete project #{p.name} ?"}, class: 'btn btn-danger'
 .col-md-4.col-md-offset-4
     = paginate @projects

@@ -6,6 +6,6 @@ br
 = @project.name
 |project, click the link to activate invitation.
 br
-= link_to 'confirm', activate_member_url(@project, @member)
+= link_to 'confirm', activate_member_url(@project,@member.confirmation_token)
 br
 |If you didn't request this, please ignore this email.
